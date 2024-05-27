@@ -12,16 +12,18 @@ router.get('/templates', async (req, res) => {
     try {
         const templates = await Template.find();
         // Construct response object with template name and content
-        const response = templates.map(template => ({
-            template: template.name,
-            content: template.file_path
-        }));
+        const response = [];
+        for (const template of templates) {
+            const content = await fs.promises.readFile(path.join(__dirname, '../', template.file_path), 'utf8');
+            response.push({ template: template.name, content });
+        }
         res.json(response);
     } catch (err) {
         console.error('Error fetching templates:', err);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 // Endpoint to get a specific template file
 router.get('/templates/:id', async (req, res) => {

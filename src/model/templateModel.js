@@ -9,8 +9,8 @@ const templateSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    file_path: {
-        type: String,
+    content: {
+        type: String, // Store template content as a string
         required: true
     }
 });

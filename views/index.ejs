@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Templates</title>
+</head>
+<body>
+    <h1>Resume Templates</h1>
+    <ul>
+        <% templates.forEach(template => { %>
+            <li>
+                <a href="/api/templates/render/<%= template._id %>"><%= template.name %></a> - <%= template.description %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

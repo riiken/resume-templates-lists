@@ -6,7 +6,7 @@ const app = express();
 const dotenv = require('dotenv');
 
 dotenv.config();
-const templateRoutes = require('./routes/templateRoutes');
+const templateRoutes = require('./src/routes/templateRoutes');
 
 // Middleware to parse JSON bodies
 app.use(express.json());

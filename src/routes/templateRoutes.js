@@ -4,6 +4,9 @@ const Template = require('../model/templateModel');
 const path = require('path');
 const fs = require('fs');
 
+router.get('/',(req,res)=>{
+    res.json({message:"Hello"});
+})
 // Endpoint to get the list of templates
 router.get('/templates', async (req, res) => {
     try {

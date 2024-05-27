@@ -14,7 +14,7 @@ router.get('/templates', async (req, res) => {
         // Construct response object with template name and content
         const response = templates.map(template => ({
             template: template.name,
-            content: fs.readFileSync(path.join(__dirname, '../', template.file_path), 'utf8')
+            content: template.file_path
         }));
         res.json(response);
     } catch (err) {
